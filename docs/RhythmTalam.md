@@ -377,7 +377,7 @@ Hemiola Audio is a new developer, and a very small one: one person. I make music
 
 The timing rules in the modules are covered by automatic tests. Whether a module is musical is decided in a patch, by ear, and I would like to hear what you find.
 
-More modules are planned, all in the same spirit: tools for people who think about rhythm in cycles. They are free and open source. If something is wrong, unclear or missing, please open an issue on GitHub or write to hemiolaaudio@gmail.com.
+More modules are planned, and not all of them will be about rhythm: instruments to play as well as tools to keep time. They are free and open source. If something is wrong, unclear or missing, please open an issue on GitHub or write to hemiolaaudio@gmail.com.
 
 ## Credits and licence
 

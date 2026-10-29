@@ -2,7 +2,7 @@
 name: An idea
 about: Something you would like a module to do, or a new module
 title: ""
-labels: idea
+labels: enhancement
 ---
 
 **What would you like?**

@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="docs/brand/social-preview.png" alt="Hemiola Audio: rhythm modules that count in whole cycles" width="100%">
+  <img src="docs/brand/social-preview.png" alt="Hemiola Audio: free modules for VCV Rack, made to be played" width="100%">
 </p>
 
 # Hemiola Audio for VCV Rack
 
-Free modules for [VCV Rack](https://vcvrack.com) that count time in whole cycles: Indian thalams, ordinary bars, and the splits and patterns that grow out of them.
+Free, open-source modules for [VCV Rack](https://vcvrack.com), made to be played. The first two are about rhythm: they count time in whole cycles, such as Indian thalams and ordinary bars, and the splits that grow out of them. More modules are on the way, and they will not all be about rhythm.
 
 Most clocks tick. These know where they are. Cycle Clock knows it is on beat 11 of 16, and R&T can cut every beat into five, seven or nine equal parts, the way a Carnatic musician counts nadai.
 
