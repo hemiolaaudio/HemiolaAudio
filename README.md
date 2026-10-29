@@ -10,7 +10,7 @@ Most clocks tick. These know where they are. Cycle Clock knows it is on beat 11 
 
 **Version 2.0.0** · Free and open source · GPL-3.0-or-later
 
-[Download](https://github.com/hemiolaaudio/HemiolaAudio/releases/latest) · [Manual](MANUAL.md) · [Hear it in a patch](#hear-it-in-a-patch) · [The story](docs/about.md) · [Say hello](#questions-ideas-and-corrections)
+[Website](https://hemiolaaudio.github.io) · [Download](https://github.com/hemiolaaudio/HemiolaAudio/releases/latest) · [Manual](MANUAL.md) · [Hear it in a patch](#hear-it-in-a-patch) · [The story](docs/about.md) · [Say hello](#questions-ideas-and-corrections)
 
 ---
 
