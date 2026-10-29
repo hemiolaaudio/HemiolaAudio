@@ -1,0 +1,13 @@
+build/
+dist/
+plugin.dylib
+plugin.so
+plugin.dll
+*.o
+*.d
+*.log
+.DS_Store
+tests/test_core
+_to_delete/
+__pycache__/
+*.pyc
