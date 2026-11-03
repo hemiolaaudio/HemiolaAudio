@@ -68,7 +68,7 @@ They work alone, and they work as a pair. Patch a Cycle Clock BEAT output into R
 
 Windows, Intel Mac and Linux builds come through the VCV Library (below), which compiles the plugin for every system. You can also [build it yourself](#build-from-source).
 
-**From the VCV Library.** Hemiola Audio has been submitted to the [VCV Library](https://library.vcvrack.com). Once it is listed, add it to your account on the Library page and Rack installs it for you.
+**From the VCV Library (all systems).** Hemiola Audio is in the [VCV Library](https://library.vcvrack.com/HemiolaAudio). Open the page, click Add, and Rack installs it for you the next time it starts.
 
 In Rack, right-click either module and choose **User manual** to open its page here.
 
