@@ -1,0 +1,680 @@
+{
+  "version": "2.6.6",
+  "zoom": 0.55,
+  "gridOffset": [
+    0.0,
+    0.0
+  ],
+  "modules": [
+    {
+      "id": 1,
+      "plugin": "HemiolaAudio",
+      "model": "CycleClock",
+      "version": "2.1.0",
+      "params": [
+        {
+          "id": 0,
+          "value": 130
+        },
+        {
+          "id": 1,
+          "value": 3
+        },
+        {
+          "id": 3,
+          "value": 0.6
+        },
+        {
+          "id": 7,
+          "value": 0
+        }
+      ],
+      "pos": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": 2,
+      "plugin": "HemiolaAudio",
+      "model": "RhythmTalam",
+      "version": "2.1.0",
+      "params": [
+        {
+          "id": 0,
+          "value": 2
+        },
+        {
+          "id": 2,
+          "value": 0.4
+        }
+      ],
+      "pos": [
+        15,
+        0
+      ]
+    },
+    {
+      "id": 3,
+      "plugin": "Fundamental",
+      "model": "SEQ3",
+      "version": "2.6.4",
+      "params": [
+        {
+          "id": 0,
+          "value": 1.0
+        },
+        {
+          "id": 3,
+          "value": 8
+        },
+        {
+          "id": 4,
+          "value": -1.0
+        },
+        {
+          "id": 5,
+          "value": -1.0
+        },
+        {
+          "id": 6,
+          "value": -0.75
+        },
+        {
+          "id": 7,
+          "value": -1.0
+        },
+        {
+          "id": 8,
+          "value": -0.5833
+        },
+        {
+          "id": 9,
+          "value": -1.0
+        },
+        {
+          "id": 10,
+          "value": -0.4167
+        },
+        {
+          "id": 11,
+          "value": -0.75
+        }
+      ],
+      "pos": [
+        26,
+        0
+      ],
+      "data": {
+        "running": true,
+        "gates": [
+          1,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        "clockPassthrough": false
+      }
+    },
+    {
+      "id": 4,
+      "plugin": "Fundamental",
+      "model": "LFO",
+      "version": "2.6.4",
+      "params": [
+        {
+          "id": 2,
+          "value": -3.84
+        },
+        {
+          "id": 0,
+          "value": 0
+        }
+      ],
+      "pos": [
+        49,
+        0
+      ]
+    },
+    {
+      "id": 5,
+      "plugin": "Fundamental",
+      "model": "LFO",
+      "version": "2.6.4",
+      "params": [
+        {
+          "id": 2,
+          "value": -5.06
+        },
+        {
+          "id": 0,
+          "value": 0
+        }
+      ],
+      "pos": [
+        59,
+        0
+      ]
+    },
+    {
+      "id": 6,
+      "plugin": "HemiolaAudio",
+      "model": "Whoa",
+      "version": "2.1.0",
+      "params": [
+        {
+          "id": 0,
+          "value": 4
+        },
+        {
+          "id": 1,
+          "value": 0.0
+        },
+        {
+          "id": 2,
+          "value": 3.2
+        },
+        {
+          "id": 3,
+          "value": 0.35
+        },
+        {
+          "id": 4,
+          "value": 0.0
+        },
+        {
+          "id": 5,
+          "value": 0.55
+        },
+        {
+          "id": 6,
+          "value": 0.0
+        },
+        {
+          "id": 7,
+          "value": 0.55
+        },
+        {
+          "id": 8,
+          "value": 0.0
+        },
+        {
+          "id": 9,
+          "value": 0.6
+        },
+        {
+          "id": 10,
+          "value": 0.0
+        },
+        {
+          "id": 11,
+          "value": 0.62
+        },
+        {
+          "id": 12,
+          "value": 0.35
+        },
+        {
+          "id": 13,
+          "value": 0.3
+        },
+        {
+          "id": 14,
+          "value": 0.8
+        },
+        {
+          "id": 15,
+          "value": 0.0
+        },
+        {
+          "id": 16,
+          "value": 8
+        },
+        {
+          "id": 17,
+          "value": 0.5
+        },
+        {
+          "id": 18,
+          "value": 0.28
+        },
+        {
+          "id": 19,
+          "value": 0
+        },
+        {
+          "id": 20,
+          "value": 0.35
+        },
+        {
+          "id": 21,
+          "value": 0.3
+        },
+        {
+          "id": 22,
+          "value": 0.5
+        },
+        {
+          "id": 23,
+          "value": 0.15
+        }
+      ],
+      "pos": [
+        0,
+        1
+      ],
+      "data": {
+        "cvVoice": 0.5,
+        "cvEnv": 0.5,
+        "cvDelay": 0.5
+      }
+    },
+    {
+      "id": 7,
+      "plugin": "Fundamental",
+      "model": "ADSR",
+      "version": "2.6.4",
+      "params": [
+        {
+          "id": 0,
+          "value": 0
+        },
+        {
+          "id": 1,
+          "value": 0.4005
+        },
+        {
+          "id": 2,
+          "value": 0
+        },
+        {
+          "id": 3,
+          "value": 0.4005
+        }
+      ],
+      "pos": [
+        26,
+        1
+      ]
+    },
+    {
+      "id": 8,
+      "plugin": "Fundamental",
+      "model": "ADSR",
+      "version": "2.6.4",
+      "params": [
+        {
+          "id": 0,
+          "value": 0
+        },
+        {
+          "id": 1,
+          "value": 0.6296
+        },
+        {
+          "id": 2,
+          "value": 0
+        },
+        {
+          "id": 3,
+          "value": 0.6296
+        }
+      ],
+      "pos": [
+        35,
+        1
+      ]
+    },
+    {
+      "id": 9,
+      "plugin": "Fundamental",
+      "model": "VCO",
+      "version": "2.6.4",
+      "params": [
+        {
+          "id": 2,
+          "value": -29.0
+        },
+        {
+          "id": 4,
+          "value": 0.3
+        }
+      ],
+      "pos": [
+        44,
+        1
+      ]
+    },
+    {
+      "id": 10,
+      "plugin": "Fundamental",
+      "model": "VCA-1",
+      "version": "2.6.4",
+      "params": [
+        {
+          "id": 0,
+          "value": 1.0
+        }
+      ],
+      "pos": [
+        53,
+        1
+      ]
+    },
+    {
+      "id": 11,
+      "plugin": "Fundamental",
+      "model": "Noise",
+      "version": "2.6.4",
+      "params": [],
+      "pos": [
+        58,
+        1
+      ]
+    },
+    {
+      "id": 12,
+      "plugin": "Fundamental",
+      "model": "VCF",
+      "version": "2.6.4",
+      "params": [
+        {
+          "id": 0,
+          "value": 0.9742
+        },
+        {
+          "id": 2,
+          "value": 0.2
+        }
+      ],
+      "pos": [
+        63,
+        1
+      ]
+    },
+    {
+      "id": 13,
+      "plugin": "Fundamental",
+      "model": "ADSR",
+      "version": "2.6.4",
+      "params": [
+        {
+          "id": 0,
+          "value": 0
+        },
+        {
+          "id": 1,
+          "value": 0.3693
+        },
+        {
+          "id": 2,
+          "value": 0
+        },
+        {
+          "id": 3,
+          "value": 0.3693
+        }
+      ],
+      "pos": [
+        71,
+        1
+      ]
+    },
+    {
+      "id": 14,
+      "plugin": "Fundamental",
+      "model": "VCA-1",
+      "version": "2.6.4",
+      "params": [
+        {
+          "id": 0,
+          "value": 0.35
+        }
+      ],
+      "pos": [
+        80,
+        1
+      ]
+    },
+    {
+      "id": 15,
+      "plugin": "Fundamental",
+      "model": "Mixer",
+      "version": "2.6.4",
+      "params": [
+        {
+          "id": 0,
+          "value": 0.55
+        }
+      ],
+      "pos": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": 16,
+      "plugin": "Core",
+      "model": "AudioInterface2",
+      "version": "2.6.6",
+      "params": [],
+      "pos": [
+        10,
+        2
+      ]
+    },
+    {
+      "id": 17,
+      "plugin": "Core",
+      "model": "Notes",
+      "version": "2.6.6",
+      "params": [],
+      "pos": [
+        21,
+        2
+      ],
+      "data": {
+        "text": "HEMIOLA AUDIO: WHOA!  HYPNOTIC TECHNO, 130 BPM\n\nCycle Clock (4/4) is the master. BEAT gate = kick and Whoa ACCENT. SECTION trigger resets the SEQ3 each bar so the loop never drifts.\nR&T divides the beat into eighths. That clock drives the SEQ3 (eight steps, one repeated riff) and the hats.\nWhoa! plays ratio 3 as a short FM pluck: sustain at zero, the release knobs set the note length. Slow LFOs sweep MOD D and INDEX, so the same riff keeps changing.\nDelay: dotted eighth from the BEAT clock. Reverb: small Room.\n\nKick and hat are Fundamental modules going straight to the Mixer. Not yet heard in Rack when written."
+      }
+    }
+  ],
+  "cables": [
+    {
+      "id": 0,
+      "outputModuleId": 1,
+      "outputId": 0,
+      "inputModuleId": 2,
+      "inputId": 0,
+      "color": "#ffb437"
+    },
+    {
+      "id": 1,
+      "outputModuleId": 2,
+      "outputId": 0,
+      "inputModuleId": 3,
+      "inputId": 1,
+      "color": "#f3374b"
+    },
+    {
+      "id": 2,
+      "outputModuleId": 1,
+      "outputId": 1,
+      "inputModuleId": 3,
+      "inputId": 2,
+      "color": "#00b56e"
+    },
+    {
+      "id": 3,
+      "outputModuleId": 3,
+      "outputId": 1,
+      "inputModuleId": 6,
+      "inputId": 0,
+      "color": "#3695ef"
+    },
+    {
+      "id": 4,
+      "outputModuleId": 3,
+      "outputId": 0,
+      "inputModuleId": 6,
+      "inputId": 3,
+      "color": "#a924bb"
+    },
+    {
+      "id": 5,
+      "outputModuleId": 1,
+      "outputId": 0,
+      "inputModuleId": 6,
+      "inputId": 15,
+      "color": "#ffb437"
+    },
+    {
+      "id": 6,
+      "outputModuleId": 1,
+      "outputId": 4,
+      "inputModuleId": 6,
+      "inputId": 6,
+      "color": "#f3374b"
+    },
+    {
+      "id": 7,
+      "outputModuleId": 4,
+      "outputId": 1,
+      "inputModuleId": 6,
+      "inputId": 8,
+      "color": "#00b56e"
+    },
+    {
+      "id": 8,
+      "outputModuleId": 5,
+      "outputId": 1,
+      "inputModuleId": 6,
+      "inputId": 4,
+      "color": "#3695ef"
+    },
+    {
+      "id": 9,
+      "outputModuleId": 1,
+      "outputId": 4,
+      "inputModuleId": 7,
+      "inputId": 4,
+      "color": "#a924bb"
+    },
+    {
+      "id": 10,
+      "outputModuleId": 1,
+      "outputId": 4,
+      "inputModuleId": 8,
+      "inputId": 4,
+      "color": "#ffb437"
+    },
+    {
+      "id": 11,
+      "outputModuleId": 7,
+      "outputId": 0,
+      "inputModuleId": 9,
+      "inputId": 1,
+      "color": "#f3374b"
+    },
+    {
+      "id": 12,
+      "outputModuleId": 9,
+      "outputId": 0,
+      "inputModuleId": 10,
+      "inputId": 1,
+      "color": "#00b56e"
+    },
+    {
+      "id": 13,
+      "outputModuleId": 8,
+      "outputId": 0,
+      "inputModuleId": 10,
+      "inputId": 0,
+      "color": "#3695ef"
+    },
+    {
+      "id": 14,
+      "outputModuleId": 2,
+      "outputId": 0,
+      "inputModuleId": 13,
+      "inputId": 4,
+      "color": "#a924bb"
+    },
+    {
+      "id": 15,
+      "outputModuleId": 11,
+      "outputId": 0,
+      "inputModuleId": 12,
+      "inputId": 3,
+      "color": "#ffb437"
+    },
+    {
+      "id": 16,
+      "outputModuleId": 12,
+      "outputId": 1,
+      "inputModuleId": 14,
+      "inputId": 1,
+      "color": "#f3374b"
+    },
+    {
+      "id": 17,
+      "outputModuleId": 13,
+      "outputId": 0,
+      "inputModuleId": 14,
+      "inputId": 0,
+      "color": "#00b56e"
+    },
+    {
+      "id": 18,
+      "outputModuleId": 10,
+      "outputId": 0,
+      "inputModuleId": 15,
+      "inputId": 0,
+      "color": "#3695ef"
+    },
+    {
+      "id": 19,
+      "outputModuleId": 14,
+      "outputId": 0,
+      "inputModuleId": 15,
+      "inputId": 1,
+      "color": "#a924bb"
+    },
+    {
+      "id": 20,
+      "outputModuleId": 15,
+      "outputId": 0,
+      "inputModuleId": 16,
+      "inputId": 0,
+      "color": "#ffb437"
+    },
+    {
+      "id": 21,
+      "outputModuleId": 15,
+      "outputId": 0,
+      "inputModuleId": 16,
+      "inputId": 1,
+      "color": "#f3374b"
+    },
+    {
+      "id": 22,
+      "outputModuleId": 6,
+      "outputId": 0,
+      "inputModuleId": 16,
+      "inputId": 0,
+      "color": "#00b56e"
+    },
+    {
+      "id": 23,
+      "outputModuleId": 6,
+      "outputId": 1,
+      "inputModuleId": 16,
+      "inputId": 1,
+      "color": "#3695ef"
+    }
+  ],
+  "masterModuleId": 16
+}

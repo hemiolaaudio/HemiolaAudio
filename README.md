@@ -1,14 +1,16 @@
 <p align="center">
-  <img src="docs/brand/social-preview.png" alt="Hemiola Audio: free modules for VCV Rack, made to be played" width="100%">
+  <img src="docs/brand/social-preview.png" alt="Hemiola Audio: free modules for VCV Rack" width="100%">
 </p>
 
 # Hemiola Audio for VCV Rack
 
-Free, open-source modules for [VCV Rack](https://vcvrack.com), made to be played. The first two are about rhythm: they count time in whole cycles, such as Indian thalams and ordinary bars, and the splits that grow out of them. More modules are on the way, and they will not all be about rhythm.
+Free, open-source modules for [VCV Rack](https://vcvrack.com).
 
-Most clocks tick. These know where they are. Cycle Clock knows it is on beat 11 of 16, and R&T can cut every beat into five, seven or nine equal parts, the way a Carnatic musician counts nadai.
+Cycle Clock and R&T are about rhythm. They count time in whole cycles, such as Indian thalams and ordinary bars, and they divide each beat into smaller parts. Whoa is a voice you play. More modules are in development.
 
-**Version 2.0.0** · Free and open source · GPL-3.0-or-later
+Cycle Clock keeps track of where you are in a cycle, so you always know which beat you are on. R&T divides each beat into one to nine equal parts, such as five, seven or nine, the way Carnatic music counts nadai. Whoa is a two-operator FM voice for techno, psytrance and dark ambient, with a separate gate and envelope for the modulator and for the carrier, and a clocked delay and reverb built in.
+
+**Version 2.1.0** · Free and open source · GPL-3.0-or-later
 
 [Website](https://hemiolaaudio.github.io) · [Download](https://github.com/hemiolaaudio/HemiolaAudio/releases/latest) · [Manual](MANUAL.md) · [Hear it in a patch](#hear-it-in-a-patch) · [The story](docs/about.md) · [Say hello](#questions-ideas-and-corrections)
 
@@ -27,7 +29,7 @@ Most clocks tick. These know where they are. Cycle Clock knows it is on beat 11 
 A clock that counts a whole rhythm cycle and tells you where you are in it.
 
 - **55 cycles:** 13 ordinary meters, 7 Hindustani thalams and all 35 Carnatic thalams
-- **Pulses everywhere:** beat, section start, cycle start and cycle end, each as a trigger and as a gate
+- **Pulse outputs:** beat, section start, cycle start and cycle end, each as a trigger and as a gate
 - **Position voltage** that rises across the cycle, for anything that should follow the bar
 - **Accented click** on beat one, so you can hear the count
 - **Swing, tempo CV and a run input** on the built-in clock, or follow your own clock
@@ -46,7 +48,7 @@ Splits every incoming beat into equal parts, and then divides those parts.
 
 - **1 to 9 parts per beat:** tisra (3), chatusra (4), khanda (5), misra (7), sankirna (9), plus the plain even splits
 - **DIVIDE 1 to 64**, with its own outputs, so a fast nadai becomes slow enough to follow
-- **Chance knob** drops parts at random, so a pattern breathes
+- **Chance knob** drops parts at random
 - **Reset input** to keep the count lined up with the bar
 - **Division and divide by CV**, by level or by count
 - **Accented click**, triggers and gates on every output
@@ -57,7 +59,23 @@ Splits every incoming beat into equal parts, and then divides those parts.
 </tr>
 </table>
 
-They work alone, and they work as a pair. Patch a Cycle Clock BEAT output into R&T BEAT IN, and the CYCLE trigger into R&T RESET IN. The manual shows how, with recipes.
+### WHOA! · 25 HP
+
+<img src="docs/preview/Whoa.svg" alt="Whoa panel" width="320">
+
+An FM voice with one modulator and one carrier, and a full effects section. Each operator has its own gate and ADSR, and one common gate fires both.
+
+- **Separate gates:** hold the carrier and pulse only the modulator, to change the tone without a new note
+- **Ratio, fine tuning and feedback** on the modulator, with **index** set by its own envelope
+- **Drive, stereo spread and an accent input**
+- **CV on index, feedback and every envelope stage**
+- **Clocked delay** with 16 note values, feedback and mix
+- **Reverb** with Room, Hall, Vast and Shimmer types, and pre-delay
+- **Up to 16 voices**, with V/oct in and a gate out
+
+[Read the WHOA! manual](docs/Whoa.md). Two example patches are in the `patches` folder: [Dark Ambient](docs/Patch-Whoa-Dark-Ambient.md) and [Hypnotic Techno](docs/Patch-Whoa-Hypnotic-Techno.md).
+
+Cycle Clock and R&T work alone, and they work as a pair. Patch a Cycle Clock BEAT output into R&T BEAT IN, and the CYCLE trigger into R&T RESET IN. The manual shows how, with recipes.
 
 ## Install
 
@@ -83,7 +101,7 @@ Two small patches are in the [`patches`](patches) folder. Download one, then ope
 
 ## Why "Hemiola"
 
-A hemiola is the moment three beats lean against two. Cycles and divisions that do not fit neatly into each other are what this pack is for. The thalam names in the modules follow South Indian usage, and each preset has a source in the manual.
+A hemiola is a rhythm where three beats are played across two, or two across three. The name suits a pack about cycles and divisions that do not line up neatly. The thalam names in the modules follow South Indian usage, and each preset has a source in the manual.
 
 ## Questions, ideas and corrections
 

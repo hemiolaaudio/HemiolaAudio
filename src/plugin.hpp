@@ -7,3 +7,4 @@ extern Plugin* pluginInstance;
 
 extern Model* modelCycleClock;
 extern Model* modelRhythmTalam;
+extern Model* modelWhoa;

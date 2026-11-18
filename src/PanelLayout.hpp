@@ -5,51 +5,56 @@
 namespace CycleClockLayout {
 const float panelWidthMm = 71.12f;
 const float displayX = 4.0f, displayY = 11.5f, displayW = 63.12f, displayH = 15.0f;
-const float tempoX = 8.89f, tempoY = 37.05f;
-const float cycleX = 26.67f, cycleY = 37.05f;
-const float cvAmountX = 44.45f, cvAmountY = 37.05f;
-const float gateLenX = 62.23f, gateLenY = 37.05f;
-const float runX = 8.89f, runY = 51.4f;
-const float resetX = 26.67f, resetY = 51.4f;
-const float accentX = 42.15f, accentY = 51.4f;
-const float clickX = 62.23f, clickY = 51.4f;
-const float clkInX = 8.89f, clkInY = 64.85f;
-const float rstInX = 26.67f, rstInY = 64.85f;
-const float cvInX = 44.45f, cvInY = 64.85f;
-const float cvModeX = 58.33f, cvModeY = 64.85f;
-const float tempoCvX = 8.89f, tempoCvY = 80.1f;
-const float runInX = 26.67f, runInY = 80.1f;
-const float posOutX = 44.45f, posOutY = 80.1f;
-const float swingX = 62.23f, swingY = 80.1f;
-const float beatTrigX = 8.89f, beatTrigY = 94.45f;
-const float sectionTrigX = 26.67f, sectionTrigY = 94.45f;
-const float cycleTrigX = 44.45f, cycleTrigY = 94.45f;
-const float endTrigX = 62.23f, endTrigY = 94.45f;
-const float beatGateX = 8.89f, beatGateY = 107.9f;
-const float sectionGateX = 26.67f, sectionGateY = 107.9f;
-const float cycleGateX = 44.45f, cycleGateY = 107.9f;
-const float endGateX = 62.23f, endGateY = 107.9f;
+const float tempoX = 8.89f, tempoY = 37.18f;
+const float cycleX = 26.67f, cycleY = 37.18f;
+const float cvAmountX = 44.45f, cvAmountY = 37.18f;
+const float gateLenX = 62.23f, gateLenY = 37.18f;
+const float runX = 8.89f, runY = 51.66f;
+const float resetX = 26.67f, resetY = 51.66f;
+const float accentX = 42.15f, accentY = 51.66f;
+const float clickX = 62.23f, clickY = 51.66f;
+const float clkInX = 8.89f, clkInY = 65.24f;
+const float rstInX = 26.67f, rstInY = 65.24f;
+const float cvInX = 44.45f, cvInY = 65.24f;
+const float cvModeX = 58.33f, cvModeY = 65.24f;
+const float tempoCvX = 8.89f, tempoCvY = 80.62f;
+const float runInX = 26.67f, runInY = 80.62f;
+const float posOutX = 44.45f, posOutY = 80.62f;
+const float swingX = 62.23f, swingY = 80.62f;
+const float beatTrigX = 8.89f, beatTrigY = 95.1f;
+const float sectionTrigX = 26.67f, sectionTrigY = 95.1f;
+const float cycleTrigX = 44.45f, cycleTrigY = 95.1f;
+const float endTrigX = 62.23f, endTrigY = 95.1f;
+const float beatGateX = 8.89f, beatGateY = 108.68f;
+const float sectionGateX = 26.67f, sectionGateY = 108.68f;
+const float cycleGateX = 44.45f, cycleGateY = 108.68f;
+const float endGateX = 62.23f, endGateY = 108.68f;
 }  // namespace CycleClockLayout
 
 namespace RhythmTalamLayout {
 const float panelWidthMm = 50.8f;
 const float displayX = 4.0f, displayY = 11.5f, displayW = 42.8f, displayH = 15.0f;
-const float divisionX = 8.47f, divisionY = 37.05f;
-const float cvAmountX = 25.4f, cvAmountY = 37.05f;
-const float gateLenX = 42.33f, gateLenY = 37.05f;
-const float divideX = 8.47f, divideY = 53.2f;
-const float probX = 25.4f, probY = 53.2f;
-const float cvModeX = 38.43f, cvModeY = 53.2f;
-const float clkInX = 8.47f, clkInY = 67.55f;
-const float cvInX = 25.4f, cvInY = 67.55f;
-const float divCvX = 42.33f, divCvY = 67.55f;
-const float rstInX = 8.47f, rstInY = 81.0f;
-const float accentX = 23.1f, accentY = 81.0f;
-const float clickX = 42.33f, clickY = 81.0f;
-const float partsTrigX = 8.47f, partsTrigY = 94.45f;
-const float firstTrigX = 25.4f, firstTrigY = 94.45f;
-const float divTrigX = 42.33f, divTrigY = 94.45f;
-const float partsGateX = 8.47f, partsGateY = 107.9f;
-const float firstGateX = 25.4f, firstGateY = 107.9f;
-const float divGateX = 42.33f, divGateY = 107.9f;
+const float divisionX = 8.47f, divisionY = 37.18f;
+const float cvAmountX = 25.4f, cvAmountY = 37.18f;
+const float gateLenX = 42.33f, gateLenY = 37.18f;
+const float divideX = 8.47f, divideY = 53.46f;
+const float probX = 25.4f, probY = 53.46f;
+const float cvModeX = 38.43f, cvModeY = 53.46f;
+const float clkInX = 8.47f, clkInY = 67.94f;
+const float cvInX = 25.4f, cvInY = 67.94f;
+const float divCvX = 42.33f, divCvY = 67.94f;
+const float rstInX = 8.47f, rstInY = 81.52f;
+const float accentX = 23.1f, accentY = 81.52f;
+const float clickX = 42.33f, clickY = 81.52f;
+const float partsTrigX = 8.47f, partsTrigY = 95.1f;
+const float firstTrigX = 25.4f, firstTrigY = 95.1f;
+const float divTrigX = 42.33f, divTrigY = 95.1f;
+const float partsGateX = 8.47f, partsGateY = 108.68f;
+const float firstGateX = 25.4f, firstGateY = 108.68f;
+const float divGateX = 42.33f, divGateY = 108.68f;
 }  // namespace RhythmTalamLayout
+
+namespace SnapLayout {
+const float panelWidthMm = 10.16f;
+const float buttonX = 5.08f, buttonY = 15.0f;
+}  // namespace SnapLayout

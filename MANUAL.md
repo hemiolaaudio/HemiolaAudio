@@ -1,15 +1,16 @@
 # Hemiola Audio manuals
 
-Version 2.0.0. Free and open source (GPL-3.0-or-later).
+Version 2.1.0. Free and open source (GPL-3.0-or-later).
 
-Hemiola Audio makes free modules for VCV Rack, designed to be played. The first pack has two, both about rhythm. Each has its own manual. Pick the one you need:
+Hemiola Audio makes free modules for VCV Rack. The pack has three modules: two about rhythm and one voice. Each has its own manual. Pick the one you need:
 
 | Module | Width | Manual | In one sentence |
 | --- | --- | --- | --- |
 | **Cycle Clock** | 14 HP | [Cycle Clock manual](docs/CycleClock.md) | A clock that counts a whole rhythm cycle, such as a 16-beat thalam or a 7/8 bar, and tells you where you are inside it. |
 | **R&T** (Rhythm & Thalam) | 10 HP | [R&T manual](docs/RhythmTalam.md) | Splits every beat into 1 to 9 equal parts, the way Carnatic music counts nadai, and can divide those parts down again so fast nadai are easy to count. |
+| **WHOA!** | 25 HP | [WHOA! manual](docs/Whoa.md) | A two-operator FM voice with a built-in delay and reverb. The modulator and the carrier each have their own gate and envelope, with CV on every stage. |
 
-You do not need to know Indian music to use them. Both manuals explain everything from the start.
+You do not need to know Indian music to use the two rhythm modules. Both manuals explain everything from the start.
 
 ## Using the two together
 

@@ -11,3 +11,4 @@ tests/test_core
 _to_delete/
 __pycache__/
 *.pyc
+unreleased/

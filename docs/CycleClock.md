@@ -1,6 +1,6 @@
 # Cycle Clock: user manual
 
-Version 2.0.0 | 14 HP | Hemiola Audio | Free and open source (GPL-3.0-or-later)
+Version 2.1.0 | 14 HP | Hemiola Audio | Free and open source (GPL-3.0-or-later)
 
 Cycle Clock is a clock that counts a whole rhythm cycle, such as a 16-beat thalam or a 7/8 bar, and tells the rest of your patch where it is inside the cycle. It has 55 cycles built in: 13 ordinary bars, 7 Hindustani thalams and 35 Carnatic thalams.
 
@@ -137,7 +137,7 @@ In Tintal (16 beats), the start of beat 5 is 10 x 4 / 16 = **2.5 V**, the start 
 
 ### A beat count that never drifts
 
-A 3-beat cycle against a 4-beat cycle lines up again only every 12 beats (3 x 4). This is the lowest common multiple. It is why polymetre feels like it "comes back home" after a long journey. Recipe 7 uses this.
+A 3-beat cycle against a 4-beat cycle lines up again only every 12 beats (3 x 4). This is the lowest common multiple. This is why two cycles of different lengths come back together only after a while. Recipe 7 uses this.
 
 ## 3. The panel
 

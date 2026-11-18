@@ -1,21 +1,23 @@
-# Three against two
+# About Hemiola Audio
 
-There is a moment in a good rhythm when two things that should not fit decide to fit anyway. Three beats lean against two. A bar of seven refuses to be tidy, and somehow you nod along. Musicians have a word for the simplest version of this: hemiola, from the Greek for "half" and "whole". That moment is where Hemiola Audio lives.
+Hemiola Audio is one person. I make music in VCV Rack most days, and I kept wanting modules that did not exist. One was a clock that knows which beat of a 16-beat cycle it is on, instead of only ticking. Another was a way to divide a beat into five, seven or nine equal parts, as Carnatic musicians do. So I started building them.
 
-Hemiola Audio is one person. I make music in VCV Rack most days of the week, and I kept reaching for things that did not quite exist. A clock that knew it was on the eleventh beat of sixteen, instead of only ticking. A way to cut a beat into five, seven or nine equal parts, the way a Carnatic musician does without a second thought. So I started building them.
+The name comes from the hemiola, a rhythm where three beats are played across two, or two across three. Cycles and divisions that do not line up neatly are what the first two modules deal with.
 
-I should be plain about how. I am not a trained programmer. I build these modules with an AI assistant doing the typing, and I do the deciding: what a module is for, how it should look, what happens when you turn a knob. Every timing rule is checked by machine. Whether it feels right is checked the old way, in a patch, with headphones on.
+I am not a trained programmer. I build the modules with an AI assistant, which writes the code. I decide what each module is for, how it looks and what happens when you turn a knob. Automatic tests check every timing rule. Whether a module feels right is checked in a patch, with headphones on.
 
-The modules are free and open source, and they will stay that way. They look quiet on purpose: pale paper, soft lettering, every label sitting beside the control it names. A rhythm module should help you hear, not shout.
+The modules are free and open source, and they will stay that way. The panels are pale and plain, and every label sits beside the control it names.
 
-The first two are a pair.
+The first two work as a pair. The third, Whoa, is a voice.
 
-**Cycle Clock** counts a whole rhythm cycle. In Indian music a cycle is a thalam, and Cycle Clock knows 55 of them, from a plain bar of four to a sixteen-beat Tintal and the long Carnatic cycles. It tells your patch where the lap begins, where each section starts, and where you are in between.
+**Cycle Clock** counts a whole rhythm cycle. In Indian music a cycle is a thalam, and Cycle Clock has 55 of them, from a plain bar of four to the 16-beat Tintal and the long Carnatic cycles. It tells your patch where each lap begins, where each section starts, and where you are in between.
 
-**R&T**, short for Rhythm & Thalam, fills each beat. In Carnatic music the way a beat is divided is called nadai, and R&T gives you 1 to 9 equal parts. It can divide those parts down again so that nine to a beat is still easy to count, and it can drop some of them at random while the beat stays exactly where it is.
+**R&T**, short for Rhythm & Thalam, divides each beat. In Carnatic music the way a beat is divided is called nadai, and R&T gives you 1 to 9 equal parts. It can divide those parts down again, so nine to a beat is still easy to follow, and it can drop some of them at random while the beat stays where it is.
 
-Patch one into the other and you have a clock that understands a thalam and a subdivision that understands the beat.
+Patch one into the other and the clock follows the thalam while the divisions follow the beat.
 
-More modules are on the way. Each one will come from the same itch: something I wanted in the middle of a patch and could not find. If you try these and something feels wrong, or missing, I would like to hear about it. Write to hemiolaaudio@gmail.com, or open an issue on GitHub.
+**WHOA!** is an FM voice for techno, psytrance and dark ambient. It has one modulator and one carrier. Each has its own gate and envelope, with CV on every stage, so you can hold a note and move only the tone. It has a clocked delay and a reverb built in. It is the first Hemiola module that makes sound itself.
+
+More modules are planned. Each one will start from something I wanted in a patch and could not find. If something feels wrong or missing, write to hemiolaaudio@gmail.com or open an issue on GitHub.
 
 Hemiola Audio

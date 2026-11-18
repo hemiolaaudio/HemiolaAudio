@@ -146,7 +146,7 @@ struct RhythmTalamDisplay : TransparentWidget {
 		if (layer == 1) {
 			int n = module ? module->engine.activeDivision() : 4;
 			int every = module ? module->divider.divideBy() : 1;
-			std::string note = every > 1 ? "per beat, divided by " + std::to_string(every) : "per beat";
+			std::string note = every > 1 ? "per beat, \xC3\xB7 " + std::to_string(every) : "per beat";
 			hemiola_ui::drawDisplay(args, box, nadaiName(n), std::to_string(n), note);
 		}
 		TransparentWidget::drawLayer(args, layer);

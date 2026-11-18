@@ -1,6 +1,6 @@
 # R&T (Rhythm & Thalam): user manual
 
-Version 2.0.0 | 10 HP | Hemiola Audio | Free and open source (GPL-3.0-or-later)
+Version 2.1.0 | 10 HP | Hemiola Audio | Free and open source (GPL-3.0-or-later)
 
 R&T takes a steady beat and splits every beat into 1 to 9 equal parts, the way Carnatic music counts **nadai** (also called **gati**). It can then divide those parts down again, from 1 to 64, so a fast nadai such as Sankirna is easy to count. A chance control drops parts at random while the beat stays in place.
 
@@ -115,7 +115,7 @@ The count carries on from beat to beat. When N does not fit the number of parts,
 
 ## 3. The panel
 
-**Display.** Shows the name (Tisra, Chatusra, Khanda, Misra or Sankirna for 3, 4, 5, 7 and 9, Even for 2, 6 and 8, and Beat for 1), the number of parts per beat, and the words "per beat". When DIVIDE is above 1 it adds "divided by" and the number.
+**Display.** Shows the name (Tisra, Chatusra, Khanda, Misra or Sankirna for 3, 4, 5, 7 and 9, Even for 2, 6 and 8, and Beat for 1), the number of parts per beat on the same line, and the words "per beat" below. When DIVIDE is above 1 it adds a division sign and the number, for example "per beat, ÷ 11", which means every 11th part is passed on.
 
 **Row 1: three knobs**
 

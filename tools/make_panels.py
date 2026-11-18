@@ -18,6 +18,10 @@ Run:  python3 tools/make_panels.py      (needs: pip install fonttools)
 import json
 import os
 
+try:
+    import pathops  # optional: removes overlapping outlines so rotated text renders cleanly in Rack
+except ImportError:
+    pathops = None
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 from fontTools.ttLib import TTFont
@@ -34,6 +38,7 @@ MUTED = "#8A857A"
 LINE = "#CBC5B8"
 RECESS = "#E3DED2"
 ACCENT = "#3F5A73"
+NOTE = "#5A574F"
 DISC = "#3A3935"
 
 # Shared vertical grid (mm). Every module uses the same rows.
@@ -47,15 +52,17 @@ FOOTER_RULE = 114.4
 LOGO_TOP = 116.0
 LOGO_W = 21.0             # same size on every module
 
-LABEL_EM = 2.35
-LABEL_TRACK = 0.07
+LABEL_EM = 2.75           # was 2.35: raised after forum feedback on small text (18 Nov 2026)
+LABEL_TRACK = 0.03
+LABEL_EM_MIN = 2.4        # long labels shrink to fit their cell, but not below this
+LABEL_FACE = "SemiBold"   # heavier than Medium so thin strokes survive when the rack is zoomed out
 TITLE_EM = 3.3
 TITLE_TRACK = 0.2
-SMALL_EM = 1.85
+SMALL_EM = 2.0            # switch position labels: was 1.85 in pale grey, now darker and heavier
 LABEL_DY = {"knob": -8.2, "button": -4.8, "toggle": -5.8, "input": -6.4, "output": -6.4}
 # Each control sits in its own pale cell with its label inside the same cell, so a label can
 # only ever belong to the control in its own cell. Cell height follows the control.
-CAP_HALF = 0.85           # half the cap height of a label, mm
+CAP_HALF = 0.98           # half the cap height of a label, mm
 CELL_PAD = 0.5   # default; a module can set its own with "pad"
 CELL_GAP = 1.0            # clear space between cells
 CELL_FILL = "#E6E2D8"
@@ -212,15 +219,56 @@ class Face:
         elif anchor == "r":
             x -= w_px
         base = px(y_mm) + self.cap * s / 2
-        pen = SVGPathPen(self.glyphs, ntos=lambda v: ("%.2f" % v).rstrip("0").rstrip("."))
+        # One <path> per letter. Rack decides what is a hole by counting crossings with every other contour in the
+        # same shape (even-odd, no winding), so letters sharing a path can turn each other's counters solid.
+        out = []
         for ch in text:
             g = self.cmap.get(ord(ch))
             if not g:
                 continue
+            pen = SVGPathPen(self.glyphs, ntos=lambda v: ("%.2f" % v).rstrip("0").rstrip("."))
             tp = TransformPen(pen, (s, 0, 0, -s, x, base))
-            self.glyphs[g].draw(tp)
+            self._draw_clean(g, tp)
+            cmds = pen.getCommands()
+            if cmds:
+                out.append('<path d="%s" fill="%s" fill-rule="evenodd"/>' % (cmds, fill))
             x += self.font["hmtx"][g][0] * s + track * px(em_mm)
-        return '<path d="%s" fill="%s"/>' % (pen.getCommands(), fill)
+        return "\n".join(out)
+
+    def _draw_clean(self, g, tp):
+        if not pathops:
+            raise SystemExit('skia-pathops is missing. Run: pip3 install --user skia-pathops (letters fill in in Rack without it).')
+        if pathops:
+            clean = pathops.Path()
+            self.glyphs[g].draw(clean.getPen(glyphSet=self.glyphs))
+            clean.simplify(fix_winding=True, keep_starting_points=False)
+            clean.draw(tp)
+        else:
+            self.glyphs[g].draw(tp)
+
+
+    def width_px(self, text, em_mm, track):
+        return self.width(text, em_mm, track) * MM
+
+    def path_up(self, text, cx_mm, y_start_mm, em_mm, track=0.0, fill=INK):
+        """Text turned a quarter turn, reading from the bottom upwards. cx is the middle of the capital letters,
+        y_start is where the first letter begins (the bottom end)."""
+        s = px(em_mm) / self.upem
+        e = px(cx_mm) + self.cap * s / 2
+        y = px(y_start_mm)
+        out = []
+        for ch in text:
+            g = self.cmap.get(ord(ch))
+            if not g:
+                continue
+            pen = SVGPathPen(self.glyphs, ntos=lambda v: ("%.2f" % v).rstrip("0").rstrip("."))
+            tp = TransformPen(pen, (0, -s, -s, 0, e, y))
+            self._draw_clean(g, tp)
+            cmds = pen.getCommands()
+            if cmds:
+                out.append('<path d="%s" fill="%s" fill-rule="evenodd"/>' % (cmds, fill))
+            y -= self.font["hmtx"][g][0] * s + track * px(em_mm)
+        return "\n".join(out)
 
 
 FACES = {}
@@ -331,6 +379,7 @@ def panel_body(m, preview=False):
     dx, dy, dw, dh = m["display"]
     out.append(rect(dx, dy, dw, dh, fill=RECESS, rx=1.2, stroke=LINE, sw=0.25))
     med = face("Medium")
+    lab = face(LABEL_FACE)
     reg = face("Regular")
     import math
     for (cx_, cy_, cw_, ch_) in m["cells"]:
@@ -351,9 +400,14 @@ def panel_body(m, preview=False):
             side = opt["side"]
             tx = x + 3.0 if side == "R" else x - 3.0
             anchor = "l" if side == "R" else "r"
-            out.append(reg.path(opt["top"], tx, y - 1.95, SMALL_EM, anchor, 0.08, MUTED))
-            out.append(reg.path(opt["bottom"], tx, y + 1.95, SMALL_EM, anchor, 0.08, MUTED))
-        out.append(med.path(label, opt.get("lx", x), opt.get("ly", y + LABEL_DY[kind]), LABEL_EM, "c", LABEL_TRACK))
+            out.append(med.path(opt["top"], tx, y - 1.95, SMALL_EM, anchor, 0.08, NOTE))
+            out.append(med.path(opt["bottom"], tx, y + 1.95, SMALL_EM, anchor, 0.08, NOTE))
+        em = LABEL_EM
+        host = [c for c in m["cells"] if c[0] <= x <= c[0] + c[2] and c[1] <= y <= c[1] + c[3]]
+        if host:   # shrink a long label to fit its own cell, never below the floor
+            lw = lab.width(label, LABEL_EM, LABEL_TRACK)
+            if lw > host[0][2] - 0.8: em = max(LABEL_EM_MIN, LABEL_EM * (host[0][2] - 0.8) / lw)
+        out.append(lab.path(label, opt.get("lx", x), opt.get("ly", y + LABEL_DY[kind]), em, "c", LABEL_TRACK))
     # locked brand footer: identical size and position on every module
     out.append(line(4.0, FOOTER_RULE, w - 4.0, FOOTER_RULE))
     body, _ = logo_body(w / 2, LOGO_TOP, LOGO_W)
@@ -371,11 +425,55 @@ def panel_body(m, preview=False):
             elif kind == "toggle":
                 out += art_toggle(x, y, name == "accent")
         l1, l2, l3 = m["sample"]
-        cx = dx + dw / 2
-        out.append(med.path(l1.upper(), cx, dy + 3.8, 2.5, "c", 0.1, INK))
-        out.append(face("Light").path(l2, cx, dy + 8.6, 5.0, "c", 0.04, ACCENT))
-        out.append(reg.path(l3, cx, dy + 13.2, 2.1, "c", 0.08, MUTED))
+        out.append(med.path(l1.upper(), dx + 3.0, dy + 4.4, 4.4, "l", 0.06, INK))
+        out.append(med.path(l2, dx + dw - 3.0, dy + 4.4, 4.4, "r", 0.06, ACCENT))
+        out.append(reg.path(l3, dx + 3.0, dy + 10.6, 4.4, "l", 0.06, NOTE))
     return out
+
+
+
+# ---------------------------------------------------------------- Snap (2 HP utility, hand-laid)
+
+SNAP = {"hp": 2, "buttonY": 15.0, "nameCentreY": 62.0, "nameEm": 5.2, "nameTrack": 0.32}
+
+
+def logo_mark_body(cx_mm, top_mm, width_mm):
+    """Only the crescent mark of the logo (the first four shapes). The wordmark would be too small to read at 2 HP."""
+    d = json.load(open(os.path.join(ROOT, "docs", "brand", "logo_paths.json")))
+    marks = d["paths"][:4]
+    x_lo = min(a for p in marks for a, b in p)
+    x_hi = max(a for p in marks for a, b in p)
+    y_lo = min(b for p in marks for a, b in p)
+    y_hi = max(b for p in marks for a, b in p)
+    k = width_mm / (x_hi - x_lo)
+    parts = []
+    for p in marks:
+        pts = ["%s %s" % (f(px(cx_mm - width_mm / 2 + (a - x_lo) * k)), f(px(top_mm + (b - y_lo) * k))) for a, b in p]
+        parts.append("M" + " L".join(pts) + " Z")
+    return '<path d="%s" fill="%s" fill-rule="evenodd"/>' % (" ".join(parts), INK), (y_hi - y_lo) * k
+
+
+def snap_panel_body(preview=False):
+    w = SNAP["hp"] * HP
+    cx = w / 2
+    out = [rect(0, 0, w, H, fill=PANEL)]
+    by = SNAP["buttonY"]
+    out.append(rect(1.2, by - 7.2, w - 2.4, 14.4, fill=CELL_FILL, rx=1.0))
+    out.append(line(2.4, 27.0, w - 2.4, 27.0))
+    name = "SNAP"
+    med = face("Medium")
+    length = med.width(name, SNAP["nameEm"], SNAP["nameTrack"])
+    out.append(med.path_up(name, cx, SNAP["nameCentreY"] + length / 2, SNAP["nameEm"], SNAP["nameTrack"]))
+    brand = "HEMIOLA AUDIO"
+    reg = face("Regular")
+    out.append(reg.path_up(brand, cx, 109.5, 1.9, 0.14, MUTED))
+    out.append(line(2.4, FOOTER_RULE, w - 2.4, FOOTER_RULE))
+    body, _ = logo_mark_body(cx, 117.6, 6.6)
+    out.append(body)
+    if preview:
+        out += art_button(cx, by)
+    return out
+
 
 
 def layout_header():
@@ -391,11 +489,16 @@ def layout_header():
             o.append("const float %sX = %sf, %sY = %sf;" % (iname, fl(x), iname, fl(y)))
         o.append("}  // namespace %sLayout" % name)
         o.append("")
+    o.append("namespace SnapLayout {")
+    o.append("const float panelWidthMm = %sf;" % fl(SNAP["hp"] * HP))
+    o.append("const float buttonX = %sf, buttonY = %sf;" % (fl(SNAP["hp"] * HP / 2), fl(SNAP["buttonY"])))
+    o.append("}  // namespace SnapLayout")
+    o.append("")
     return "\n".join(o)
 
 
 def main():
-    for d in ("res/components", "docs/preview", "src"):
+    for d in ("res/components", "docs/preview", "src", "unreleased/snap"):
         os.makedirs(os.path.join(ROOT, d), exist_ok=True)
     for rel, text in component_files().items():
         open(os.path.join(ROOT, "res", rel), "w").write(text)
@@ -403,6 +506,9 @@ def main():
         w = m["hp"] * HP
         open(os.path.join(ROOT, "res", name + ".svg"), "w").write(svg_wrap(w, H, panel_body(m, False)))
         open(os.path.join(ROOT, "docs", "preview", name + ".svg"), "w").write(svg_wrap(w, H, panel_body(m, True)))
+    sw = SNAP["hp"] * HP
+    open(os.path.join(ROOT, "unreleased", "snap", "Snap.svg"), "w").write(svg_wrap(sw, H, snap_panel_body(False)))
+    open(os.path.join(ROOT, "unreleased", "snap", "Snap-preview.svg"), "w").write(svg_wrap(sw, H, snap_panel_body(True)))
     open(os.path.join(ROOT, "src", "PanelLayout.hpp"), "w").write(layout_header())
     print("artwork written")
 
